@@ -14,7 +14,7 @@ plot1 <- function(writeImage = TRUE) {
     if (writeImage) {
         png("plot1.png")
     }
-    rm
+    
     data <- read.table(
                 file = "household_power_consumption.txt",
                 na.strings = "?",
