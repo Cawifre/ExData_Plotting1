@@ -26,6 +26,15 @@ plot4 <- function(writeImage = TRUE) {
     data$Time <- hms(data$Time)
     data <- subset(data, Date == ymd("2007-02-01") | Date == ymd("2007-02-02"))
     
+    par( mfcol = c(2, 2) )
+    
+    plot(
+        data$DateTime,
+        data$Global_active_power,
+        type = "l",
+        ylab = "Global Active Power",
+        xlab = "")
+    
     plot(
         data$DateTime,
         data$Sub_metering_1,
@@ -46,6 +55,19 @@ plot4 <- function(writeImage = TRUE) {
         col = c("black", "red", "blue"),
         lwd = c(1, 1, 1))
     
+    plot(
+        data$DateTime,
+        data$Voltage,
+        type = "l",
+        xlab = "datetime",
+        ylab = "Voltage")
+    
+    plot(
+        data$DateTime,
+        data$Global_reactive_power,
+        type = "l",
+        xlab = "datetime",
+        ylab = "Global_reactive_power")
     
     if (writeImage) {
         dev.off()
